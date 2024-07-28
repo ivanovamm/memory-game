@@ -31,20 +31,12 @@
 .game-board {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  align-items: start;
   gap: 10px;
-  max-width: 600px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
 }
 
-.card {
-  position: relative;
-  width: 100%;
-  padding-top: 100%;
-  cursor: pointer;
-  perspective: 1000px;
-}
 
 .card .front,
 .card .back {
