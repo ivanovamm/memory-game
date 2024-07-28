@@ -1,13 +1,14 @@
 import React from 'react';
+import './Card.css';
+import backImage from '../pictures/back.png';
 
 const Card = ({ painting, handleClick, isFlipped, isMatched }) => {
     return (
-        <div className={`card ${isFlipped ? 'flipped' : ''}`} onClick={() => handleClick(painting.id)}>
+        <div className={`card ${isFlipped ? 'flipped' : ''}`} onClick={() => handleClick(painting.uniqueId)}>
             <div className="front">
                 <img src={painting.url} alt={painting.name} />
             </div>
-            <div className="back">
-                <img src='src/pictures/back.png'/>
+            <div className="back" style={{ backgroundImage: `url(${backImage})` }}>
             </div>
         </div>
     );

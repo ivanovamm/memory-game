@@ -10,23 +10,23 @@ const GameBoard = () => {
     useEffect(() => {
         const shuffledCards = [...paintings, ...paintings]
             .sort(() => Math.random() - 0.5)
-            .map(painting => ({ ...painting, id: Math.random() }));
+            .map((painting, index) => ({ ...painting, uniqueId: index + '-' + painting.name }));
 
         setCards(shuffledCards);
     }, []);
 
-    const handleClick = id => {
-        if (flippedCards.length === 2 || flippedCards.includes(id) || matchedCards.includes(id)) return;
+    const handleClick = uniqueId => {
+        if (flippedCards.length === 2 || flippedCards.includes(uniqueId) || matchedCards.includes(uniqueId)) return;
 
-        setFlippedCards(prev => [...prev, id]);
+        setFlippedCards(prev => [...prev, uniqueId]);
 
         if (flippedCards.length === 1) {
-            const [firstId] = flippedCards;
-            const firstCard = cards.find(card => card.id === firstId);
-            const secondCard = cards.find(card => card.id === id);
+            const [firstUniqueId] = flippedCards;
+            const firstCard = cards.find(card => card.uniqueId === firstUniqueId);
+            const secondCard = cards.find(card => card.uniqueId === uniqueId);
 
             if (firstCard.name === secondCard.name) {
-                setMatchedCards(prev => [...prev, firstId, id]);
+                setMatchedCards(prev => [...prev, firstUniqueId, uniqueId]);
             }
 
             setTimeout(() => setFlippedCards([]), 1000);
@@ -37,11 +37,11 @@ const GameBoard = () => {
         <div className="game-board">
             {cards.map(painting => (
                 <Card
-                    key={painting.id}
+                    key={painting.uniqueId}
                     painting={painting}
                     handleClick={handleClick}
-                    isFlipped={flippedCards.includes(painting.id)}
-                    isMatched={matchedCards.includes(painting.id)}
+                    isFlipped={flippedCards.includes(painting.uniqueId) || matchedCards.includes(painting.uniqueId)}
+                    isMatched={matchedCards.includes(painting.uniqueId)}
                 />
             ))}
         </div>
