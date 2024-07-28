@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import paintings from '../data';
+import './GameBoard.css';
+
+const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+};
 
 const GameBoard = () => {
     const [cards, setCards] = useState([]);
@@ -8,10 +17,7 @@ const GameBoard = () => {
     const [matchedCards, setMatchedCards] = useState([]);
 
     useEffect(() => {
-        const shuffledCards = [...paintings, ...paintings]
-            .sort(() => Math.random() - 0.5)
-            .map((painting, index) => ({ ...painting, uniqueId: index + '-' + painting.name }));
-
+        const shuffledCards = shuffleArray([...paintings, ...paintings].map((painting, index) => ({ ...painting, uniqueId: index + '-' + painting.name })));
         setCards(shuffledCards);
     }, []);
 

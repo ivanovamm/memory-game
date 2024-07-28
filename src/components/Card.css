@@ -1,9 +1,10 @@
 .card {
     position: relative;
-    width: 100%;
-    padding-top: 100%;
+    width: 100px;
+    height: 150px;
     cursor: pointer;
     perspective: 1000px;
+    margin: 10px;
 }
 
 .card .front,

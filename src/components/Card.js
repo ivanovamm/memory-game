@@ -2,7 +2,7 @@ import React from 'react';
 import './Card.css';
 import backImage from '../pictures/back.png';
 
-const Card = ({ painting, handleClick, isFlipped, isMatched }) => {
+const Card = ({ painting, handleClick, isFlipped}) => {
     return (
         <div className={`card ${isFlipped ? 'flipped' : ''}`} onClick={() => handleClick(painting.uniqueId)}>
             <div className="front">

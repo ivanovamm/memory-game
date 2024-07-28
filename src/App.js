@@ -14,7 +14,7 @@ function App() {
         {gameStarted ? (
             <>
               <h1>Найди пару: Картины русских художников</h1>
-              <GameBoard />
+              <GameBoard/>
             </>
         ) : (
             <div className="start-screen">

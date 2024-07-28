@@ -31,6 +31,7 @@
 .game-board {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  align-items: start;
   gap: 10px;
   max-width: 600px;
   margin: 0 auto;
