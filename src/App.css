@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #f0f0f0;
+  background-color: white;
 }
 
 .start-button {
@@ -18,14 +18,14 @@
   margin-top: 20px;
   cursor: pointer;
   border: none;
-  background-color: #007bff;
+  background-color: dodgerblue;
   color: white;
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
 
 .start-button:hover {
-  background-color: #0056b3;
+  background-color: darkblue;
 }
 
 .game-board {
